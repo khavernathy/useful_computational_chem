@@ -1,0 +1,19 @@
+$rem
+exchange              HF
+correlation	      none
+basis                 6-31g* 
+qm_mm                 true
+jobtype               sp 
+symmetry              off
+sym_ignore            true
+print_input           false
+qmmm_print            true
+esp_charges           true 
+MAX_SCF_CYCLES        250
+xc_grid               000075000302
+gaussian_blur         true
+$end
+
+$molecule
+0 1
+$end

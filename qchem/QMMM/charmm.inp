@@ -1,0 +1,146 @@
+* charmm input file 
+* 
+
+bomblev -1 
+wrnlev -4 
+!read rtf card name top_all36_cgenff.rtf
+!read param flex card name par_all36_cgenff.prm
+
+stream mof.str 
+
+read sequ MOF 1
+
+generate MOF1 setup 
+
+open read card unit 44 name mof.pdb 
+read coor pdb unit 44 
+
+! Expand Box.... 
+read sequ MOF 1
+generate MOF2 duplicate MOF1 setup 
+coor duplicate select segid MOF1 end select segid MOF2 end 
+coor trans xdir  26.346 sele segid MOF2 end
+write coor pdb name mof2.pdb !sele qm .or. type qqh* end 
+
+read sequ MOF 1
+generate MOF3 duplicate MOF1 setup 
+coor duplicate select segid MOF1 end select segid MOF3 end 
+coor trans xdir -26.346 sele segid MOF3 end
+write coor pdb name mof3.pdb !sele qm .or. type qqh* end 
+
+! negative y dir
+read sequ MOF 1
+generate MOF4 duplicate MOF1 setup
+coor duplicate select segid MOF1 end select segid MOF4 end
+coor trans ydir -26.346 sele segid MOF4 end
+write coor pdb name mof4.pdb !sele qm .or. type qqh* end
+
+read sequ MOF 1
+generate MOF5 duplicate MOF4 setup
+coor duplicate select segid MOF4 end select segid MOF5 end
+coor trans xdir -26.346 sele segid MOF5 end
+write coor pdb name mof5.pdb !sele qm .or. type qqh* end
+
+read sequ MOF 1
+generate MOF6 duplicate MOF4 setup
+coor duplicate select segid MOF4 end select segid MOF6 end
+coor trans xdir  26.346 sele segid MOF6 end
+write coor pdb name mof6.pdb !sele qm .or. type qqh* end
+
+! positive y dir
+read sequ MOF 1
+generate MOF7 duplicate MOF1 setup
+coor duplicate select segid MOF1 end select segid MOF7 end
+coor trans ydir  26.346 sele segid MOF7 end
+write coor pdb name mof7.pdb !sele qm .or. type qqh* end
+
+read sequ MOF 1
+generate MOF8 duplicate MOF7 setup
+coor duplicate select segid MOF7 end select segid MOF8 end
+coor trans xdir -26.346 sele segid MOF8 end
+write coor pdb name mof8.pdb !sele qm .or. type qqh* end
+
+read sequ MOF 1
+generate MOF9 duplicate MOF7 setup
+coor duplicate select segid MOF7 end select segid MOF9 end
+coor trans xdir  26.346 sele segid MOF9 end
+write coor pdb name mof9.pdb !sele qm .or. type qqh* end
+
+join MOF1 MOF2 renumber
+join MOF1 MOF3 renumber
+join MOF1 MOF4 renumber
+join MOF1 MOF5 renumber
+join MOF1 MOF6 renumber
+join MOF1 MOF7 renumber
+join MOF1 MOF8 renumber
+join MOF1 MOF9 renumber
+write coor pdb name mof9.pdb !sele qm .or. type qqh* end
+
+! negative z dir
+read sequ MOF 1
+generate MOF2 duplicate MOF1 setup
+coor duplicate select segid MOF1 end select segid MOF2 end
+coor trans zdir -26.346 sele segid MOF2 end
+write coor pdb name mof10.pdb !sele qm .or. type qqh* end
+
+! positive z dir
+read sequ MOF 1
+generate MOF3 duplicate MOF1 setup
+coor duplicate select segid MOF1 end select segid MOF3 end
+coor trans zdir  26.346 sele segid MOF3 end
+write coor pdb name mof11.pdb !sele qm .or. type qqh* end
+
+join MOF1 MOF2 renumber
+join MOF1 MOF3 renumber
+
+write coor pdb name mof11.pdb !sele qm .or. type qqh* end
+
+
+define qm1 sele bynum 68 .around 3.5 show end
+define qm2 sele bynum 69 .around 3.5 show end
+define qm3 sele bynum 71 .around 3.5 show end
+define qm4 sele qm1 .or. qm2 .or. qm3 end
+define qm5 sele qm4 .around. 1.0 show end
+define cu1 sele resid 1 .and. ( type CU8  .or. type CU7  ) .around. 3.0 end
+define cu2 sele resid 1 .and. ( type CU29 .or. type CU30 ) .around. 3.0 end
+define cu3 sele resid 1 .and. ( type CU31 .or. type CU40 ) .around. 3.0 end
+define cus sele cu1 .or. cu2 .or. cu3 end
+
+define qm sele qm5 .or. cus end
+!write coor pdb name test.pdb sele qm .or. type qqh* end
+
+addl qqh1 bynum 56  bynum 151
+addl qqh2 bynum 67  bynum 161
+addl qqh3 bynum 55  bynum 149
+addl qqh4 bynum 61  bynum 157
+addl qqh5 bynum 119 bynum 213
+addl qqh6 bynum 109 bynum 205
+addl qqh7 bynum 70  bynum 166
+addl qqh8 bynum 81  bynum 176
+addl qqh9 bynum 82  bynum 178
+
+
+write coor pdb name ref.pdb sele qm .or. type qqh* end
+
+!LONEpair COLINEAR DIST 1.0 SCALE -0.7261  -
+!             SELE type QQH1  END SELE bynum 56  END SELE bynum 151  END
+!
+!coor copy comp
+!coor shake
+
+write coor pdb name test.pdb sele qm .or. type qqh* end
+write coor pdb name mof12.pdb !sele qm .or. type qqh* end
+
+!---------- Needed to define Q-Chem env. vars. ----------
+ envi qchemcnt  "qchem.inp"
+ envi qcheminp  "q1.inp"
+ envi qchemexe  "qchem"
+ envi qchemout  "q1.out"
+!--------------------------------------------------------
+
+scalar wmain set 1.0 sele .not. qm end
+qchem omp para 12 remove blur charge sele qm end   !!! # cores = 8
+
+energy
+
+stop
