@@ -1,0 +1,10 @@
+nwchem_basis_library /apps/nwchem/6.5/data/libraries/
+nwchem_nwpw_library /apps/nwchem/6.5/data/libraryps/
+ffield amber
+amber_1 /apps/nwchem/6.5/data/amber_s/
+amber_2 /apps/nwchem/6.5/data/amber_q/
+amber_3 /apps/nwchem/6.5/data/amber_x/
+amber_4 /apps/nwchem/6.5/data/amber_u/
+spce    /apps/nwchem/6.5/data/solvents/spce.rst
+charmm_s /apps/nwchem/6.5/data/charmm_s/
+charmm_x /apps/nwchem/6.5/data/charmm_x/

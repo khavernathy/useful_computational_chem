@@ -1,0 +1,15 @@
+#$ -N DMF-MOF5-frag-Zn
+#$ -l h_rt=168:00:00,pcpus=1
+#$ -cwd
+#$ -j y
+#$ -m e
+# -l mps=5G
+#$ -M dfranz@mail.usf.edu
+#$ -o frag-opt.log
+
+# RUN!
+module purge
+module load apps/nwchem/6.1.1
+
+mpirun -np $NSLOTS nwchem *.inp
+

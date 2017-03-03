@@ -1,0 +1,8 @@
+vmd > proc do_time {args} {
+? display_time_bar 10.0 1000 fs 0
+? }
+vmd > trace variable vmd_frame(0) w do_time
+vmd > animate goto start
+
+
+that's how to make the awesome timebar. The increments would be in 1000's on the bar and the stepsize in time is 10fs (the time diff at each xyz writeout)

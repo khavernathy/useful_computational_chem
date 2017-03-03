@@ -1,0 +1,3 @@
+find . -name 'qmmm.sge' -exec sed -i '1 s/^/#!\/bin\/bash\n/g' {} \;
+
+puts #!/bin/bash at beginning of all files called qmmm.sge in current dir.

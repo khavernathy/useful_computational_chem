@@ -1,0 +1,3 @@
+this command will add all values in column 11 of data file add.txt
+
+awk '{s+=$11} END {print s}' add.txt

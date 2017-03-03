@@ -1,0 +1,58 @@
+# make sure, that the main menu is active
+menu main on
+
+# modify display settings
+display projection perspective #orthographic
+axes location off
+color Display Background black  #silver
+mol rep cpk
+
+# redefine some colors
+color Name C gray
+color Name F lime
+color Type C gray
+color Type F lime
+color Name H white
+color Name O red
+color Type H white
+color Name O red
+color Name Cl green
+color Name Na blue
+color Type Cl green
+color Type Na blue
+
+# define a new, very transparent material 'Glass'
+material add Glass
+material change ambient Glass 0.00
+material change specular Glass 0.50
+material change diffuse Glass 0.65
+material change shininess Glass 0.53
+material change opacity Glass 0.15
+
+# search for new/updated molfile plugins in $HOME/vmd/plugins/$VMDARCH/molfile
+# type 'vmdinfo arch' to find your name for $VMDARCH
+vmd_plugin_scandirectory [file join $env(HOME) vmd/plugins [vmdinfo arch] molfile] *.so
+
+# add local (autoloaded) scripts to the search path
+set auto_path [concat $env(HOME)/vmd/scripts/tcl $auto_path]
+
+# command extensions (e.g. vmd_draw_vector) have to be sourced
+foreach ext [glob -nocomplain $env(HOME)/vmd/scripts/extensions/*.tcl ] {
+ source $ext
+}
+#unset ext
+
+# put a small yellow ball in the center of the box
+draw color yellow
+draw sphere {0 0 0} radius 0.25 resolution 20
+
+# add simulation cell object
+#draw_cubic_unitcell 9.956
+
+#pbc tools
+foreach ext [glob -nocomplain $env(HOME)/vmd/scripts/extensions/pbctools/*.tcl ] {
+source $ext
+}
+package require pbctools
+
+draw_cubic_unitcell 25 

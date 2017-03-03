@@ -1,0 +1,9 @@
+# put a small yellow ball in the center of the box
+
+draw color yellow
+
+draw sphere {0 0 0} radius 0.25 resolution 20
+
+# add simulation cell object
+
+draw_cubic_unitcell 9.956

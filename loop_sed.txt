@@ -1,0 +1,7 @@
+for x in 20 40 77 1000; do cd $x; sed '2s/$/#SBATCH --mem-per-cpu=8192/' sub.sge > sub_mem.sge; mv sub_mem.sge sub.sge; cd ..;done
+
+
+writes 
+#SBATCH --mem-per-cpu=8192
+
+in 2nd line of each file in loop ($x/sub.sge)

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#SBATCH -n 1 -J bsspXXX_78 -t 336:00:00 --mail-type=END --mail-user=dfranz@mail.usf.edu -o runlog.log
+
+/work/d/dfranz/mpmc/build/mpmc *.inp
+
+
