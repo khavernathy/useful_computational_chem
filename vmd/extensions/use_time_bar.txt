@@ -1,0 +1,14 @@
+To use the time bar:
+
+# function to draw the time bar
+proc do_time {args} {
+  display_time_bar 0.2 20.0 "fs" 0
+}
+
+# connect do_time to vmd_frame
+trace variable vmd_frame(0) w do_time
+
+# go back to start of trajectory
+animate goto start
+
+
