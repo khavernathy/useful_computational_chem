@@ -34,3 +34,6 @@ for mac (after installing with brew install ffmpeg):
 ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 -pix_fmt
 yuv420p out.mp4
 
+
+===> change the framerate (19 here) to make the video 
+shorter or longer (bigger framerate = shorter video)
