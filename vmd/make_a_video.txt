@@ -1,8 +1,8 @@
 TCL commands
 
-
-vmd for loop
-
+A VMD for-loop that rotates the camera and makes a video
+of a static system rotating
+======================================================
 for {set x 1000} {$x <= 2000} {incr x} {
 rotate x by 1
 rotate y by 1
@@ -14,9 +14,9 @@ also,
 animate goto $x (( goes to frame $x ))
 set a [expr {1 + 2}]  (( equiv. of a=1+2 ))
 
-
 =======================================================
-another example by selecting frames instead of rotation
+another example video by selecting frames 
+instead of rotation. i.e. make a trajectory video
 
 for {set x 1000} {$x <= 1455} {incr x} {
 set y [expr $x - 999]
@@ -25,9 +25,8 @@ render snapshot $x.tga
 }
 =======================================================
 
-
-
-ffmpeg 
+Consolidating .tga frames into an .mp4 with ffmpeg
+=======================================================
 
 ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 out.mp4
 
