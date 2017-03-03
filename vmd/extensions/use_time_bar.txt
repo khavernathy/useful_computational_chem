@@ -1,5 +1,7 @@
-To use the time bar:
+#To use the time bar:
+# make sure your trajectory "molecule" is the FIRST one (ID 0)
 
+# In VMD:
 # function to draw the time bar
 proc do_time {args} {
   display_time_bar 0.2 20.0 "fs" 0
