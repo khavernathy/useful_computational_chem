@@ -1,0 +1,24 @@
+ensemble        total_energy
+
+job_name mncluster
+
+temperature 0.000000000001
+numsteps 5
+corrtime 1
+
+basis1                  1000.0 0.0 0.0
+basis2                  0.0 1000.0 0.0
+basis3                  0.0 0.0 1000.0
+
+
+polarization on
+polar_damp_type exponential
+polar_damp 2.1304
+polar_iterative off
+polar_gs_ranked on
+polar_palmo on
+polar_max_iter 20
+polarizability_tensor on
+
+
+pqr_input        input.pqr

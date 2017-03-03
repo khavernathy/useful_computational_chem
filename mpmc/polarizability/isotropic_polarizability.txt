@@ -1,0 +1,17 @@
+MnCl2 _ 4H2O (after optimizing)
+
+au^3 from orca; 88.97220
+conv. to A^3 ->  13.184304022261 
+
+
+
+
+
+
+==== the output I got was ====
+mpmc output::
+13.1835    2.48700000000000000000
+13.1847    2.48800000000000000000
+
+
+so Final Mn_Polar =  2.4875
