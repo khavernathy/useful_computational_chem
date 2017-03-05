@@ -26,6 +26,7 @@ def resize_grace( ):
         pid = window.get_full_property(display.intern_atom('_NET_WM_PID'), Xlib.X.AnyPropertyType) # PID
         #print pid
         #print windowID
+        #print name
         if "Grace" in name:
             #print name
             window.configure(width = WIDTH, height = HEIGHT) # for whatever reason, width and height are backwards but i don't care
