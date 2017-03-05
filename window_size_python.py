@@ -1,7 +1,8 @@
 WIDTH, HEIGHT = 1200, 1600
 import sys
 import os
-sys.path.insert(1, os.path.join(sys.path[0], '/home/d/dfranz/pythonxlib/python-xlib-0.15rc1')) # wherever python Xlib is installed. This is my CIRCE path. Install from: https://sourceforge.net/projects/python-xlib/?source=typ_redirect
+#sys.path.insert(1, os.path.join(sys.path[0], '/home/d/dfranz/pythonxlib/python-xlib-0.15rc1')) # wherever python Xlib is installed. This is my CIRCE path. Install from: https://sourceforge.net/projects/python-xlib/?source=typ_redirect
+sys.path.insert(1, os.path.join(sys.path[0], '/home/khavernathy/python_Xlib/python-xlib-0.15rc1'))
 from Xlib import *
 import Xlib.display
 
