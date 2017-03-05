@@ -10,7 +10,7 @@ root = display.screen().root
 
 
 # TO CHANGE THE CURRENT WINDOW SIZE (i.e. the terminal window)
-def resize_all():
+def resize_this():
     windowID = root.get_full_property(display.intern_atom('_NET_ACTIVE_WINDOW'), Xlib.X.AnyPropertyType).value[0]
     window = display.create_resource_object('window', windowID)
     window.configure(width = WIDTH, height = HEIGHT)
