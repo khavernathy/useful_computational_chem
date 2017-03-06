@@ -2,6 +2,10 @@
 
 # takes an xyz file and centers all atoms about the origin 0,0,0
 # make sure the xyz has NO HEADER (immediately starts w/ atoms and coords)
+# e.g.
+# H 1.042 0.428 1.240
+# O 3.432 1.342 2.244
+# H 1.303 3.318 3.111
 
 if [[ $# -eq 0 ]]; then
 	echo 'no argument suppled. Give an xyz with no header data.';
