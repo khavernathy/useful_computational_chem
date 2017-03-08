@@ -1,9 +1,9 @@
 #!/bin/bash
 
 rm max.log
-cat half-copper-circle-cage.xyz | awk 'BEGIN{max=0} {
-                
-		printf("X is %10lf\n",$2);
+
+cat myfile.txt | awk 'BEGIN{max=-10000000000000000000} {
+		printf("X is %10f\n",$2);
 		if ($2 > max) 
                 {
 			max=$2;
@@ -11,8 +11,8 @@ cat half-copper-circle-cage.xyz | awk 'BEGIN{max=0} {
                 else {
 			max=max;
                 }
-		printf("Max is %10lf\n",max);
-
+		printf("Max is %10f\n",max);
 }' >> max.log
 
 cat max.log | tail -1
+rm max.log
