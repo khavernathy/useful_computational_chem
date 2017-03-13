@@ -1,0 +1,5 @@
+make a gif with imagemagick (installed by default in most linux distros)
+
+convert -delay 5 -loop 0 *.png animation.gif
+
+(where *.png are 001.png 002.png etc. or whatever)
