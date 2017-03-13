@@ -107,7 +107,7 @@ for endfileID in 0 `seq 1 $(($max_output_count - 1))`; do
 done
 
 echo "converting .png files to animation .gif"
-convert -delay 5 -loop 0 image.*.png animation.gif
+convert -monitor -delay 5 -loop 0 image.*.png animation.gif
 
 echo "CLEANUP: removing data files"
 rm image.*.png
