@@ -1,0 +1,6 @@
+gifsicle is a useful tool for making or optimizing gifs
+
+sudo apt-get install gifsicle
+
+optimize:
+gifsicle animation.gif -O1 -o outfile.gif

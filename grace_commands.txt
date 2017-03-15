@@ -1,0 +1,9 @@
+Basic use
+xmgrace myfile.dat
+
+Use a parameter file:
+xmgrace -par myfile.par data1.txt data2.txt data3.txt
+
+
+Save a .png through terminal:
+xmgrace -autoscale none -par myfile.par -hdevice PNG -hardcopy -printfile image.png file.txt

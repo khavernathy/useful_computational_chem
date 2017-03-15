@@ -1,0 +1,2 @@
+CPK graphics are not a good choice for rendering .stl files in VMD
+

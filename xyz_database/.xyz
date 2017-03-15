@@ -1,0 +1,13 @@
+7
+Starting point for geometry optmizations for the test set of molecules.
+(Use as the input file for the concatfilemodifier script.)
+***************************
+B3LYP/6-31G(d) geometries
+***************************
+Adapted from the supporting information in JOC, 2009, 74, 4017-4023
+"Calculating Accurate Proton Chemical Shifts of Organic Molecules with
+Density Functional Methods and Modest Basis Sets"
+Rupal Jain, Thomas Bally, and Paul Rablen
+Department of Chemistry, University of Fribourg, Switzerland and
+Department of Chemistry, Swarthmore College, Swarthmore, PA
+-----------------------------------------------------------
