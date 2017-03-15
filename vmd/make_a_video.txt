@@ -26,7 +26,6 @@ render snapshot $x.tga
 =======================================================
 
 Consolidating .tga frames into an .mp4 with ffmpeg
-=======================================================
 
 ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 out.mp4
 
@@ -34,6 +33,15 @@ for mac (after installing with brew install ffmpeg):
 ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 -pix_fmt
 yuv420p out.mp4
 
-
 ===> change the framerate (19 here) to make the video 
 shorter or longer (bigger framerate = shorter video)
+
+making a gif (using imagemagick's convert)
+THIS:
+for x in `seq 1000 1350`; do echo $x; convert $x.tga $x.png; done
+convert -monitor -delay 25 -loop 0 *.png animation.gif
+OR THIS:
+convert -monitor -delay 25 -loop 0 *.tga animation.gif
+
+optimize a gif (reduce size, not quality) (using gifsicle) :: sudo apt-get install gifsicle
+gifsicle animation.gif -O3 -o output.gif
