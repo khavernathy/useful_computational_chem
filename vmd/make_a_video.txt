@@ -36,11 +36,11 @@ yuv420p out.mp4
 ===> change the framerate (19 here) to make the video 
 shorter or longer (bigger framerate = shorter video)
 
-making a gif (using imagemagick's convert)
-THIS:
-for x in `seq 1000 1350`; do echo $x; convert $x.tga $x.png; done
-convert -monitor -delay 25 -loop 0 *.png animation.gif
-OR THIS:
+making a gif (using imagemagick's convert):
+for x in `seq 1000 1350`; do echo $x; convert $x.tga $x.gif; done
+convert -monitor -delay 25 -loop 0 *.gif animation.gif
+
+OR THIS (UBER SLOW):
 convert -monitor -delay 25 -loop 0 *.tga animation.gif
 
 optimize a gif (reduce size, not quality) (using gifsicle) :: sudo apt-get install gifsicle
