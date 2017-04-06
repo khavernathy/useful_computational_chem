@@ -6,7 +6,7 @@
 lower_limit=0.175
 upper_limit=0.5
 
-for pres in 0.1; do # 0.2 0.4 0.6 0.8 1.0 5.0 10.0 20.0 30.0 40.0 50.0 60.0; do
+for pres in 0.05; do # 0.2 0.4 0.6 0.8 1.0 5.0 10.0 20.0 30.0 40.0 50.0 60.0; do
 
 	cat $pres/*.dipole-00000.dat | awk {'print sqrt($1*$1 + $2*$2 + $3*$3)'} > $pres/dipole_mags.dat
 	cat $pres/*.traj-00000.pqr | grep ' H2G ' > $pres/tmp_sorb_coords.dat
@@ -25,3 +25,5 @@ done
 
 #xmgrace 0.1/tmp_cutoff.dat
 #echo "xmgrace 0.1/dipole_hist.dat"; xmgrace 0.1/dipole_hist.dat
+echo "dipole magnitudes from "$lower_limit" to "$upper_limit" considered."
+echo "output to dipole_xyz.xyz"
