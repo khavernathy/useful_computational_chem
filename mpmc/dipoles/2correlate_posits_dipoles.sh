@@ -12,12 +12,18 @@ for pres in 0.05; do # 0.2 0.4 0.6 0.8 1.0 5.0 10.0 20.0 30.0 40.0 50.0 60.0; do
 	cat $pres/*.traj-00000.pqr | grep ' H2G ' > $pres/tmp_sorb_coords.dat
 	paste $pres/tmp_sorb_coords.dat $pres/dipole_mags.dat > $pres/tmp_correlated.dat
 	
-	cat $pres/tmp_correlated.dat | awk {'printf(" H %10lf %10lf %10lf %12lf\n",$7,$8,$9,$20)'} > $pres/tmp_dipole_posits_and_mags.dat
+	cat $pres/tmp_correlated.dat | awk {'printf(" D %10lf %10lf %10lf %12lf\n",$7,$8,$9,$20)'} > $pres/tmp_dipole_posits_and_mags.dat
 	
 
-	cat $pres/tmp_dipole_posits_and_mags.dat | awk {'if ($5 > '$lower_limit' && $5 < '$upper_limit') {print ;}'} > $pres/dipole_xyz.xyz
+	cat $pres/tmp_dipole_posits_and_mags.dat | awk {'if ($5 > '$lower_limit' && $5 < '$upper_limit') {print ;}'} > dipole_xyz.xyz
 
-									
+    lines=$(cat dipole_xyz.xyz | grep -c "")
+    echo $lines >> dipole_points.xyz
+    echo "" >> dipole_points.xyz
+    cat dipole_xyz.xyz >> dipole_points.xyz
+    rm dipole_xyz.xyz
+	
+								
 	#rm $pres/tmp_di.dat	
 done
 
@@ -26,4 +32,4 @@ done
 #xmgrace 0.1/tmp_cutoff.dat
 #echo "xmgrace 0.1/dipole_hist.dat"; xmgrace 0.1/dipole_hist.dat
 echo "dipole magnitudes from "$lower_limit" to "$upper_limit" considered."
-echo "output to dipole_xyz.xyz"
+echo "output to ./dipole_points.xyz"
