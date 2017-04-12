@@ -100,5 +100,6 @@ cat yell.tmp | sort -nk3
 
 echo $sum' / 7168 CIRCE cores being used (actively, not queued.)';
 printf "That's %.2f%% of total CIRCE cores.\n" $(bc -q <<< scale=6\;$sum/7168*100)
+echo "This was output on "$(date)
 
 rm sum.tmp sorted.tmp yell.tmp;
