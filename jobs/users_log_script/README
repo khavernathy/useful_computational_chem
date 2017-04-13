@@ -1,0 +1,15 @@
+
+
+Put this in your ~/.bashrc
+
+alias yellgraph='bash /work/d/dfranz/useful_computational_chem/whocaniyellat.sh >> /work/d/dfranz/yell_log_data/yell_log.log; while sleep 600; do bash /work/d/dfranz/useful_computational_chem/whocaniyellat.sh; echo "output to yell log at "$(date); >> /work/d/dfranz/yell_log_data/yell_log.log; done'
+
+
+sleep 600 means wait 10 minutes for every writeout.
+Note the directory/filename should be your own.
+Also the whocaniyellat.sh script location should be your own.
+
+
+Use this to view graph
+
+bash viewgraph.sh
