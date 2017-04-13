@@ -7,7 +7,7 @@ alias yellgraph='bash /work/d/dfranz/useful_computational_chem/whocaniyellat.sh 
 
 sleep 600 means wait 10 minutes for every writeout.
 Note the directory/filename should be your own.
-Also the whocaniyellat.sh script location should be your own.
+Also the whocaniyellat.sh script location should be your own. (whocaniyellat.sh is in the root dir of this github  thing)
 
 
 Use this to view graph
