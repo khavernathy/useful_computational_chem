@@ -24,8 +24,8 @@ fi
 filename=$1;
 total_lines=$(cat $filename | grep -c ""); # counts lines
 cat $filename | awk {'print $1'} > elements
-cat $filename | awk {'print $1"XXX"'} > end_labels
-cat $filename | awk {'print $1"MASSXXX"'} > mass_labels
+#cat $filename | awk {'print $1"XXX"'} > end_labels
+#cat $filename | awk {'print $1"MASSXXX"'} > mass_labels
 cat $filename | awk {'print $2'} > xs
 cat $filename | awk {'print $3'} > ys
 cat $filename | awk {'print $4'} > zs
@@ -33,16 +33,20 @@ cat $filename | awk {'print $5'} > charges
 
 for i in `seq 1 $total_lines`; do
 	mover=$(echo $i" + 0" | bc -l);
+    echo "0.0 0.0 0.0" >> end_labels # temp
+    echo "0.0 " >> mass_labels # temp
 	echo "ATOM  " >> atoms
 	echo $mover"  " >> nums
 	echo "fec  " >> mol_name   # for now just gives mol as the name of all molecules
 	echo 1"  " >> mol_id # 1 for all for now just gives unique mol_id to all atoms
-	echo "M  " >> MF # for now just makes all atoms movable
+	echo "F  " >> MF # for now just makes all atoms movable
 done
 
 paste atoms nums elements mol_name MF mol_id xs ys zs mass_labels charges end_labels > temppdb
 
-cat temppdb | awk {'printf("%s %i %s %s %s %i %10f %10f %10f %s %10f %s\n",$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)'} > output.pdb;
+#cat temppdb | awk {'printf("%s %i %s %s %s %i %10f %10f %10f %s %10f %s\n",$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)'} > output.pdb;
+cat temppdb | awk {'printf("%s %i %s %s %s %i %10f %10f %10f %s %10f %s\n",$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)'} > output.pdb;
+
 
 echo "wrote converted xyz -> pdb to output.pdb.";
 [ -e elements ] && rm elements
