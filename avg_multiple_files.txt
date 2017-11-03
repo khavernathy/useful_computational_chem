@@ -1,0 +1,9 @@
+
+This will average the 2nd column in multiple files "gr_*dat" while leaving the first column untouched.
+The output file here is "mpmc_gr_avg.dat"
+
+-------------
+
+
+
+paste gr_*dat | awk '{ for(i=2;i<=NF;i+=2) array[$1]+=$i; if (i = NF) print $1, array[$1]/NF*2 }' > mpmc_gr_avg.dat
