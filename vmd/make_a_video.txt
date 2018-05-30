@@ -30,8 +30,7 @@ Consolidating .tga frames into an .mp4 with ffmpeg
 ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 out.mp4
 
 FOR MAC (after installing with brew install ffmpeg):
-ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 -pix_fmt
-yuv420p out.mp4
+ffmpeg -framerate 19 -pattern_type glob -i '*.tga' -c:v libx264 -pix_fmt yuv420p out.mp4
 --> note for mac, the width of the vid must be divisible by 2
 
 
