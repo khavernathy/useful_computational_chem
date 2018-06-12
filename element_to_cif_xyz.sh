@@ -50,6 +50,9 @@ while read p; do
 done < $element_label_xyz
 
 
+cat $output_file | sort -nk1 > tmp
+mv tmp $output_file
+
 echo "Done writing "$output_file"."
 
 
