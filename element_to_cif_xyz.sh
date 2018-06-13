@@ -19,6 +19,9 @@
 #  F1   Li
 # ...
 
+# you can re-sort in vim to your taste e.g.
+# :sort u
+# :sort n
 
 
 match_file="atom_match.txt"
