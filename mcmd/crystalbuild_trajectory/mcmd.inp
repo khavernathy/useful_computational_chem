@@ -1,0 +1,15 @@
+        A 14.19704   0.00000   0.00000
+        B -0.00000  13.83841   0.00000
+        C -0.60095  -0.00000   7.46876
+mode mc
+ensemble nvt
+
+
+steps 0
+mc_corrtime 0
+crystalbuild on
+crystalbuild_x 2
+crystalbuild_y 2
+crystalbuild_z 2
+temperature 30
+input_atoms_xyz  outXXX.xyz
