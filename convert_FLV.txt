@@ -1,0 +1,3 @@
+using ffmpeg
+
+ffmpeg -i file.flv -codec copy output3.mp4
