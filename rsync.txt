@@ -1,0 +1,4 @@
+rsync -h -v -r -P -t ./* user@host:~
+
+
+this will send all files from ./* excluding duplicates and weird useless files to user@host:~
