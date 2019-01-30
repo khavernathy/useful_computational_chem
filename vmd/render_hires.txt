@@ -1,0 +1,17 @@
+make all representations AOShiny
+
+hi resolution on representations
+
+display -> settings -> AO on, shadows on if wanted, depth cue density 0.25
+
+file -> render -> povray
+
+in options make sure u have +D +X +A +FT +UA  (+UA will make transparent assuming no depth cueing)
++W5000 +H5000
+
+
+then in GIMP
+Image -> Print Size -> modify dpi as desired
+File -> Export -> as .png
+
+
