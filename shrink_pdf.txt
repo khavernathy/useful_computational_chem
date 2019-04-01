@@ -1,0 +1,5 @@
+You can reduce sizes of pdf files by re-distilling:
+
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -sOutputFile=out.pdf input.pdf
+
+or you can use /printer in place of /screen for higher res.
