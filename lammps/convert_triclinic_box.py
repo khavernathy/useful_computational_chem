@@ -23,6 +23,8 @@ ly = sqrt(b*b - xy*xy)
 yz = (b*c*cos(alpha) - xy*xz)/ly
 lz = sqrt(c*c - xz*xz - yz*yz)
 
+print "lx, ly, lz: ", lx,ly,lz
+
 ##### close-to-zero as zero
 if (abs(xy) < 1e-6):
     xy = 0
@@ -44,8 +46,9 @@ C0 = 0
 C1 = 0
 C2 = sqrt(c*c - A2*A2 - B2*B2)
 
-#transpose
+##  transpose
 t = [ [A0,B0,C0], [A1,B1,C1], [A2,B2,C2] ]
+#t = [ [A0,A1,A2], [B0,B1,B2], [C0,C1,C2]  ]
 
 # box vertices
 count=0
@@ -69,33 +72,20 @@ for i in range(2):
 
             count += 1
 
-xlo = 1e40
-xhi = -1e40
-ylo = 1e40
-yhi = -1e40
-zlo = 1e40
-zhi = -1e40
-
 #print "box vertices"
 #for i in range(8):
 #        print box_vertices[i][0], box_vertices[i][1], box_vertices[i][2]
 
-for v in range(8):
-    if (box_vertices[v][0] < xlo):
-        xlo = box_vertices[v][0]
-    if (box_vertices[v][0] > xhi):
-        xhi = box_vertices[v][0]
+x_length = box_vertices[5][0] - box_vertices[1][0]
+y_length = box_vertices[3][1] - box_vertices[1][1]
+z_length = box_vertices[1][2] - box_vertices[0][2]
 
-    if (box_vertices[v][1] < ylo):
-        ylo = box_vertices[v][1]
-    if (box_vertices[v][1] > yhi):
-        yhi = box_vertices[v][1]
-
-    if (box_vertices[v][2] < zlo):
-        zlo = box_vertices[v][2]
-    if (box_vertices[v][2] > zhi):
-        zhi = box_vertices[v][2]
-
+xlo = -x_length/2.
+xhi = x_length/2.
+ylo = -y_length/2.
+yhi = y_length/2.
+zlo = -z_length/2.
+zhi = z_length/2.
 
 print ""; print ""
 print xlo, xhi, "xlo xhi"
