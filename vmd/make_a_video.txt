@@ -41,6 +41,9 @@ making a gif (using imagemagick's convert):
 for x in `seq 1000 1350`; do echo $x; convert $x.tga $x.gif; done
 convert -monitor -delay 25 -loop 0 *.gif animation.gif
 
+reversing a gif
+  convert animation.gif -coalesce -reverse -quiet -layers OptimizePlus  -loop 0 reversed.gif
+
 OR THIS
 gifsicle *.gif > animation.gif
 
