@@ -1,0 +1,9 @@
+rsync -h -v -r -P -t ./* user@host:~
+
+
+this will send all files from ./* excluding duplicates and weird useless files to user@host:~
+
+
+rsync -v -h -v -r -P -t -e ssh ./* user@host:~/tmp_web_bu/
+
+this will over ssh

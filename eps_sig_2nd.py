@@ -1,4 +1,4 @@
-# python script to convert LJ epsilon and sigma values to MPMC units
+# python script to convert UFF (Rappe et al.) LJ epsilon and sigma values to MPMC units
 from math import *
 import numpy
 

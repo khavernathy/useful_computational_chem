@@ -1,0 +1,16 @@
+So you want to extract a fragment and save it to a file?
+
+1) Open the system in VMD
+
+    vmd -pdb whatever.pdb    , or
+    vmd whatever.xyz
+
+2) Make the selection that gets you the fragment
+
+    set sel [atomselect top "within 6 of index 5418 or within 2 of index 5264 or within 2 of index 5154"]     , or e.g.
+    set sel [atomselect top]
+
+3) save it to file
+
+    $sel writexyz yay.xyz     , or
+    $sel writepdb yay.pdb

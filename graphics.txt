@@ -1,0 +1,3 @@
+imagemagick convert white to transparent
+
+convert image.gif -fuzz 0% -transparent white result.gif

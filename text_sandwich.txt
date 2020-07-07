@@ -1,0 +1,4 @@
+awk '/start/,/end/' myfile
+
+
+gets all text between strings "start" and "end" in a file.

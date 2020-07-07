@@ -1,0 +1,6 @@
+scontrol show jobid=13607389
+to show all slurm parameters and values for jobid
+
+
+scontrol update  jobid=13607390 NumCPUs=16 NumNodes=1 NumTasks=16 MinMemoryNode=20000
+to change the number of nodes, cpus, memory (MB)...
