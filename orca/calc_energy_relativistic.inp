@@ -1,0 +1,26 @@
+! BP86 ZORA old-ZORA-TZVP SARC/J opt chelpg allpop printbasis 
+%basis 
+NewGTO Eu "SARC-ZORA-TZVP" end
+end
+
+
+%pal
+nprocs 8
+end
+
+%MaxCore 10000
+
+%elprop dipole true
+  polar 1
+end
+
+%scf
+MaxIter 10000
+end 
+
+*xyz 0 1
+Eu 0 0 0 
+Cl -2.1252263408870125 -1.2270000000000003  0
+Cl 2.125226340887012 -1.2270000000000012 0
+Cl 0 2.454 0
+*
