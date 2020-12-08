@@ -232,3 +232,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+alias gitclean='git fetch; git reset --hard; git clean -xdf'
+alias gitundo='git stash save --keep-index --include-untracked'
