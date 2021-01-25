@@ -235,3 +235,5 @@ fi
 
 alias gitclean='git fetch; git reset --hard; git clean -xdf'
 alias gitundo='git stash save --keep-index --include-untracked'
+alias githardreset='git reset --hard $1 && git push --force'
+alias gitpullall='for i in $(git branch -r | grep -vE "HEAD|master"); do git branch --track ${i#*/} $i; done; git fetch --all; git pull --all;'
