@@ -94,6 +94,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF --group-directories-first'
+alias lspath='ls -ld $(pwd)/*'
 alias mv='mv -i'
 
 
