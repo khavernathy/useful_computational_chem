@@ -1,0 +1,3 @@
+converts an AVI video to MP4, and dramatically shrinks the file size.
+
+ffmpeg -i in.avi -vcodec libx265 -crf 28 out.mp4
